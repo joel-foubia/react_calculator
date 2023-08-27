@@ -1,25 +1,142 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  return <Calculatice />;
+}
+
+function Calculatice() {
+  const [result, setResult] = useState("");
+  const clickHandler = (event) => {
+    setResult(result.concat(event.target.value));
+  };
+  const clearResult = () => {
+    setResult("");
+  };
+  const calculate = (event) => {
+    // setResult(eval(result).toString());
+    console.log(event);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="innerContainer">
+        <input
+          type="text"
+          id="mainInput"
+          value={result}
+          placeholder="0"
+          minlength="1"
+          maxlength="16"
+        />
+        <input
+          type="button"
+          value={"9"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"8"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"7"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"6"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"5"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"4"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"3"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"2"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"1"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"0"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"."}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"*"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"-"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"+"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"/"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"%"}
+          className="button"
+          onClick={clickHandler}
+        />
+        <input
+          type="button"
+          value={"DEL"}
+          className="button button1"
+          onClick={clearResult}
+        />
+        <input
+          type="button"
+          value={"="}
+          className="button button1"
+          onClick={calculate}
+        />
+      </div>
     </div>
   );
 }
-
-export default App;
